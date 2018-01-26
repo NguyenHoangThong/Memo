@@ -2,7 +2,7 @@
 
 exports.Home =async function (req, res) {
     let user;
-    let post = await Memo.find({});
+    let post = await Memo.find({isPublic: true});
 
     // console.log(_post);
     let tagMap = new Map();
@@ -22,13 +22,13 @@ exports.Home =async function (req, res) {
                     return tagMap.get(tag);
                 }),
                 content: t.content,
+                name: t.name,
+                time: t.created_at
             }
         });
-    // console.log(tagMap);
-    // console.log(post);
-    // console.log(tag);
     if(req.session && req.session.user){
         user = await User.findOne({username :req.session.user});
     }
+    console.log(post);
     res.render('index', { title: 'Welcom',user: user, memo: post, tag: tag});
 }

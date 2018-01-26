@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel='stylesheet' href='/stylesheets/signin.css' />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-<div>
-
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <div class="account-wall">
-                <form class="form-signin" action="/register" method="POST">
-                    <input type="text" class="form-control" placeholder="User name" name="username" required autofocus>
-                    <input type="password" class="form-control" placeholder="Password" name="password" required>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">
-                        Sign up</button>
-                </form>
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-md-12">
+            <div class="modal-dialog" style="margin-bottom:0">
+                <div class="modal-content">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Sign Up</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" action="/register" method="POST">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="username" type="email" autofocus="">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password">
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <a href="/signin" data-toggle="modal">Sign in</a>
+                                    </label>
+                                    <label>
+                                        <a href="/" data-toggle="modal">Home</a>
+                                    </label>
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button type="submit" class="btn btn-success">Sign up</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <a href="/signin" class="text-center new-account">Log in with exist account </a>
         </div>
     </div>
 </div>
-
+</div>
 </body>
 </html>

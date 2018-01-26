@@ -32,6 +32,7 @@ exports.postSignup = async function (req, res) {
 
 exports.postSignin = async function (req, res) {
     let user;
+    console.log('signin',req.body);
     try{
         user = await User.findOne({username: req.body.username});
         if( !!user && !!user.username && user.validPassword(req.body.password) ) {
@@ -46,3 +47,8 @@ exports.postSignin = async function (req, res) {
     }
 
 };
+
+exports.Loggout = function (req, res) {
+    req.session.destroy();
+    res.redirect('/');
+}
