@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+
+    <div>
+        <% if (user) { %>
+      <div>
+        <p><%= user.username %></p>
+      </div>
+        <%  } else { %>
+      <div>
+        <a href="/signin">signin</a>
+        <a href="/signup">signup</a>
+      </div>
+        <% } %>
+      <a href="/search">Public Memo</a>
+      <a href="/mymemo">My memo</a>
+    </div>
+    <form action="/post" method="POST">
+      <input type="text" name="name" required autofocus>
+      <textarea id="content" class="text" cols="10" rows ="10" name="content"></textarea>
+      <select name="tag" multiple>
+        <%  tag.forEach(function(t) { %>
+            <option value=<%= t.id%> ><%= t.name %></option>
+        <% }) %>
+      </select>
+      <input type="checkbox" name="public" >Public<br>
+      <button type="submit">Submit</button>
+    </form>
+    <% memo.forEach(t => { %>
+    <div>
+      <di><%= t.content %></di>
+      <p>Tag: <%= t.tag.toString() %></p>
+      <form action="#"  method="post">
+        <input hidden type="text" name="id" value=<%= t.id%> >
+        <button type="submit">Clone</button>
+      </form>
+    </div>
+    <% });%>
+
+  </body>
+</html>
